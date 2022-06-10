@@ -106,11 +106,11 @@ This part connects the rotating arm to the actuator and pen. The pen slides thou
 
 This attachment meshes with the gear on the stepper motor shaft. It is bolted into the rotating arm using M3 bolts. 
 
-![image-20220606175003701](C:\Users\kyleh\AppData\Roaming\Typora\typora-user-images\image-20220606175003701.png)
+![image](https://user-images.githubusercontent.com/106935741/173163574-1df4ed51-b4f6-4c35-92c3-d856a94b9ae2.png)
 
 This part secures the stepper motor to the top of the base assembly. 
 
-![image-20220606174929233](C:\Users\kyleh\AppData\Roaming\Typora\typora-user-images\image-20220606174929233.png)
+![image](https://user-images.githubusercontent.com/106935741/173163533-600b594e-7644-4175-8d53-b4fd49651862.png)
 
 ------
 
