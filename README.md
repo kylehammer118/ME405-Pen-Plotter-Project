@@ -188,7 +188,8 @@ Our design takes an hpgl file created in Inkscape and processes the image using 
 
 ##### TaskUser 
 
-![image-20220610163034342](C:\Users\kyleh\AppData\Roaming\Typora\typora-user-images\image-20220610163034342.png)
+![image](https://user-images.githubusercontent.com/106935741/173163327-25bff17a-5e10-4616-b028-46994d0a9ba9.png)
+
 
 ##### TaskMotor 
 
