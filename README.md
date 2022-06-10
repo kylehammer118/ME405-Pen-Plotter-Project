@@ -17,14 +17,6 @@ For this project we were tasked with designing a 2.5 DOF robot to draw shapes an
     + [Reflection](#reflection)
         * [Struggles](#struggles)
         * [Suggestions for further improvements](#suggestions-for-further-improvements)
-
-<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
-------
-
-### **Introduction**
-
-For this project we were tasked with designing a 2.5 DOF robot to draw shapes and plot user generated files from programs such as inkscape. Our design consists of 2 stepper motors and a linear actuator. One stepper motor drives a belt and pulley system that attaches to a whiteboard. The other stepper rotates an arm with a pen at the end which draws on the whiteboard. The linear actuator moves the pen up and down to make contact and break contact with the board. The actuator is located at the end of the arm. Our design also features an LCD display which displays messages to the user and shows the progress of the selected drawing as it is being run. 
-
 ------
 
 ### **Mechanical Design** 
