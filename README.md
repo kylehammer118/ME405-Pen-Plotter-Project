@@ -215,7 +215,7 @@ https://github.com/kylehammer118/ME405-Pen-Plotter-Project/blob/main/HW0x02Kinem
 
 Our Newton Rapson algorithm live plots the drawing in Jupyter Notebook. Although we did not include live plotting in our final design here is a screenshot of the liveplotting. 
 
-![image-20220610162738470](C:\Users\kyleh\AppData\Roaming\Typora\typora-user-images\image-20220610162738470.png)
+![image](https://user-images.githubusercontent.com/106935741/173163666-e1acd794-0317-4f33-9346-9081d9b310a3.png)
 
 ------
 
