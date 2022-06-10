@@ -34,7 +34,7 @@ For this project we were tasked with designing a 2.5 DOF robot to draw shapes an
 
 For this project we were tasked with designing a 2.5 DOF robot to draw shapes and plot user generated files from programs such as inkscape. Our design consists of 2 stepper motors and a linear actuator. One stepper motor drives a belt and pulley system that attaches to a whiteboard. The other stepper rotates an arm with a pen at the end which draws on the whiteboard. The linear actuator moves the pen up and down to make contact and break contact with the board. The actuator is located at the end of the arm. Our design also features an LCD display which displays messages to the user and shows the progress of the selected drawing as it is being run. 
 
-![image-20220610142958063](C:\Users\kyleh\AppData\Roaming\Typora\typora-user-images\image-20220610142958063.png)
+![IMG-0031](https://user-images.githubusercontent.com/106935741/173163228-01cd356c-98bc-414e-ae4f-7e016ccdfd46.jpg)
 
 Figure 1: 2.5 Degree of Freedom Pen Plotter
 
