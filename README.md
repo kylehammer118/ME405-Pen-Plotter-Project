@@ -1,8 +1,11 @@
 # ME405-Pen-Plotter-Project
 For this project we were tasked with designing a 2.5 DOF robot to draw shapes and plot user generated files from programs such as inkscape. Our design consists of 2 stepper motors and a linear actuator. One stepper motor drives a belt and pulley system that attaches to a whiteboard. The other stepper rotates an arm with a pen at the end which draws on the whiteboard. The linear actuator moves the pen up and down to make contact and break contact with the board. The actuator is located at the end of the arm. Our design also features an LCD display which displays messages to the user and shows the progress of the selected drawing as it is being run. 
 # Pen Plotter Project
+
+### **Table of Contents**
 - [Pen Plotter Project](#pen-plotter-project)
     + [**Introduction**](#--introduction--)
+    + [Video Links of Our Design](#video-links-of-our-design)
     + [**Mechanical Design**](#--mechanical-design--)
         * [**Parts List**](#--parts-list--)
         * [Equipment Needed](#equipment-needed)
@@ -13,10 +16,38 @@ For this project we were tasked with designing a 2.5 DOF robot to draw shapes an
         * [**Wiring Diagram**](#--wiring-diagram--)
         * [**Electrical Manufacturing**](#--electrical-manufacturing--)
     + [Code Design](#code-design)
+        * [State Transition Diagrams](#state-transition-diagrams)
+        * [TaskUser](#taskuser)
+        * [TaskMotor](#taskmotor)
+        * [TaskData](#taskdata)
+        * [Task Diagram](#task-diagram)
+    + [Newton Rapson Implementation](#newton-rapson-implementation)
+        * [Live Plotting](#live-plotting)
     + [Key Features](#key-features)
     + [Reflection](#reflection)
+        * [Strengths of our Design](#strengths-of-our-design)
         * [Struggles](#struggles)
         * [Suggestions for further improvements](#suggestions-for-further-improvements)
+------
+
+### **Introduction**
+
+For this project we were tasked with designing a 2.5 DOF robot to draw shapes and plot user generated files from programs such as inkscape. Our design consists of 2 stepper motors and a linear actuator. One stepper motor drives a belt and pulley system that attaches to a whiteboard. The other stepper rotates an arm with a pen at the end which draws on the whiteboard. The linear actuator moves the pen up and down to make contact and break contact with the board. The actuator is located at the end of the arm. Our design also features an LCD display which displays messages to the user and shows the progress of the selected drawing as it is being run. 
+
+![image-20220610142958063](C:\Users\kyleh\AppData\Roaming\Typora\typora-user-images\image-20220610142958063.png)
+
+Figure 1: 2.5 Degree of Freedom Pen Plotter
+
+------
+
+### Video Links of Our Design
+
+Crown: https://youtu.be/f95ZIqNQvaE
+
+Square: https://youtube.com/shorts/aVhunRlC_zI?feature=share
+
+Triangle: https://youtube.com/shorts/GlujE-NrSug?feature=share
+
 ------
 
 ### **Mechanical Design** 
@@ -55,7 +86,7 @@ The belt and pulley we found had gears that had holes that were too large to fit
 
 ![img](https://lh3.googleusercontent.com/Z_-yFojS2N9R-4FTw38nWy0IaESrbS3j-nHvUWjIw_IKNZqTszP8FtRzRASn4NwQ7D6Uxs0pEdnQRgrhNBMwmRx_Xk_nWNcuQnpsG61ttS-FseGRydqzs6RDN-Za7bpc77SWurWR_CntOIa3cw)
 
-Figure _: OpenSCAD Program showing our gear design 
+Figure 2: OpenSCAD Program showing our gear design 
 
 We used flanges to fasten the square stock to the wood particle board:![img](https://lh3.googleusercontent.com/pI72HABMVmrnUwehG-xOvHU5RVUMqFmsB8GD44CGVYnCoQOUU_8QOjda_gmivu61dDIgPK3tVOWHyockUSSor8-YDQlLbNEfMcFWqwK6-P5zPKvVZ_epMlZlIJFvvQVNr3QBOn-_WS1Qd7XGlQ)
 
@@ -151,19 +182,55 @@ To connect the stepper motors, we had to modify them. We stripped off the PCB th
 
 ### Code Design
 
+Our design takes an hpgl file created in Inkscape and processes the image using a Newton Rapson algorithm. We scaled the values of the hpgl file so that any size will still fit on our whiteboard. The code is structured using cooperative multitasking and shared variables between tasks. We wrote classes for the TMC4210, TMC2208, and actuator. We created tasks for the user interface, data processing, and motor driving. The user interface was originally supposed to include a manual input setting to run preinstalled files, but we had trouble implementing the functionality so we chose to scrap the idea. As a result, task user mostly just involves running the I2C LCD display that serves as our "bell and whistle." Task data takes the positional data from the html file and runs it through the Newton Raphson function to generate theta values that correspond to the position values. It then interpolates between them to smooth the drawing. The interpolated data for the two motors is put into a list to be sent to task motor one at a time as the machine draws. Task motor receives the positional data, converts it to ticks, and then sends the target position to each motor to draw as it runs. Task motor also handles the actuator object that triggers when it begins to draw and raises when it finishes drawing.
 
+##### State Transition Diagrams
 
+##### TaskUser 
 
+![image-20220610163034342](C:\Users\kyleh\AppData\Roaming\Typora\typora-user-images\image-20220610163034342.png)
+
+##### TaskMotor 
+
+![image-20220610145151198](C:\Users\kyleh\AppData\Roaming\Typora\typora-user-images\image-20220610145151198.png)
+
+##### TaskData
+
+![image-20220610145606083](C:\Users\kyleh\AppData\Roaming\Typora\typora-user-images\image-20220610145606083.png)
+
+##### Task Diagram
+
+![image-20220610162958732](C:\Users\kyleh\AppData\Roaming\Typora\typora-user-images\image-20220610162958732.png)
+
+------
+
+### Newton Rapson Implementation
+
+We used a Newton Raphson algorithm to convert the desired positional values to theta values that the motors could use. We developed equations for the system that related the motion of each motor with respect to the x and y axes on the whiteboard. This was achieved by using the zeroing capabilities of the Newton Raphson and adding the desired values to the original function so that it finds the zero at the desired location. Our Newton Raphson hand calculations and example code are provided in the following link:
+
+https://github.com/kylehammer118/ME405-Pen-Plotter-Project/blob/main/HW0x02Kinematics%20(4).ipynb
+
+##### Live Plotting 
+
+Our Newton Rapson algorithm live plots the drawing in Jupyter Notebook. Although we did not include live plotting in our final design here is a screenshot of the liveplotting. 
+
+![image-20220610162738470](C:\Users\kyleh\AppData\Roaming\Typora\typora-user-images\image-20220610162738470.png)
+
+------
 
 ### Key Features
 
-Our design features an LCD display that shows the user messages and tracks the progress of the drawing. 
+Our design features an LCD display that shows the user messages and tracks the progress of the drawing. The LCD also displays user messages from task user so that the user doesn't have to refer to the serial monitor. 
 
-Template drawings: triangle, circle, square
+We didn't end up implementing this in our task user, but we planned on using it. In the user interface the user can select from different template drawings that are already loaded onto the nucleo: triangle, circle, square. The user can also import their own hpgl file. 
 
-This LCD display uses I2C communication to talk to the ____. 
+------
 
 ### Reflection
+
+##### Strengths of our Design
+
+Our design draws fast and is easy to iterate because we can erase the board in between runs. This is definitely needed because of the inconsistencies created by the counterweight. 
 
 ##### Struggles
 
@@ -176,3 +243,5 @@ We instead chose to use a counterweight on the other side of the arm. This creat
 This  sway led to us having to tweak our motor driver because there was different amounts of sway depending on which way the stepper was rotating. 
 
 ##### Suggestions for further improvements
+
+A better support mechanism for the arm that doesn't introduce friction or inconsistent inertia would improve the accuracy of our design. Each drawing we made we had to tweak our motor driver registers because of the inconsistency of the inertia of the arm. A good goal would be for the design to draw any shape perfectly without having to tune our motor driver. 
