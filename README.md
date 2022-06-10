@@ -1,9 +1,24 @@
 # ME405-Pen-Plotter-Project
 For this project we were tasked with designing a 2.5 DOF robot to draw shapes and plot user generated files from programs such as inkscape. Our design consists of 2 stepper motors and a linear actuator. One stepper motor drives a belt and pulley system that attaches to a whiteboard. The other stepper rotates an arm with a pen at the end which draws on the whiteboard. The linear actuator moves the pen up and down to make contact and break contact with the board. The actuator is located at the end of the arm. Our design also features an LCD display which displays messages to the user and shows the progress of the selected drawing as it is being run. 
 # Pen Plotter Project
+- [Pen Plotter Project](#pen-plotter-project)
+    + [**Introduction**](#--introduction--)
+    + [**Mechanical Design**](#--mechanical-design--)
+        * [**Parts List**](#--parts-list--)
+        * [Equipment Needed](#equipment-needed)
+        * [**3D Printed Parts**](#--3d-printed-parts--)
+        * [**Mechanical Manufacturing Plan**](#--mechanical-manufacturing-plan--)
+    + [Electrical Design](#electrical-design)
+        * [**Electrical Parts/Equipment:**](#--electrical-parts-equipment---)
+        * [**Wiring Diagram**](#--wiring-diagram--)
+        * [**Electrical Manufacturing**](#--electrical-manufacturing--)
+    + [Code Design](#code-design)
+    + [Key Features](#key-features)
+    + [Reflection](#reflection)
+        * [Struggles](#struggles)
+        * [Suggestions for further improvements](#suggestions-for-further-improvements)
 
-[TOC]
-
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 ------
 
 ### **Introduction**
