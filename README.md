@@ -193,15 +193,15 @@ Our design takes an hpgl file created in Inkscape and processes the image using 
 
 ##### TaskMotor 
 
-![image-20220610145151198](C:\Users\kyleh\AppData\Roaming\Typora\typora-user-images\image-20220610145151198.png)
+![image](https://user-images.githubusercontent.com/106935741/173163386-5c3dbda6-a320-4063-9801-c47d4d39df8a.png)
 
 ##### TaskData
 
-![image-20220610145606083](C:\Users\kyleh\AppData\Roaming\Typora\typora-user-images\image-20220610145606083.png)
+![image](https://user-images.githubusercontent.com/106935741/173163415-3decaab9-d60e-4398-977a-d0acf53bf771.png)
 
 ##### Task Diagram
 
-![image-20220610162958732](C:\Users\kyleh\AppData\Roaming\Typora\typora-user-images\image-20220610162958732.png)
+![image](https://user-images.githubusercontent.com/106935741/173163447-136166cf-6070-41f5-b814-a508e313d642.png)
 
 ------
 
